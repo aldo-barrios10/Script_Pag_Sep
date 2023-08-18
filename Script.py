@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
+"""SE PODRÍA AUTOMATIZAR LA BUSQUEDA DE LOS NOMBRES DE LOS LIBROS, PERO ESTA OPCIÓN TAMBIÉN ME GUSTA"""
 # tipos de libros
 tag_books = ('LMP','MLA','PAA','PCA','PEA','SDA','TPA','CMA','SHA')
 
@@ -37,7 +38,7 @@ for i in range (0,8):
                 os.makedirs(output_folder)
 
             absolute_path = os.path.abspath(output_folder)
-
+		"""SE PODRIA OMITIR EL USO DE LA VARIABLE BASE Y USAR EL CONTADOR DEL CICLO"""
             #Base para el numero de pagina
             base = "000"  
 
@@ -58,7 +59,8 @@ for i in range (0,8):
                         img_file.write(response.content)
                 else:
                     break
-                
+                """SE PUEDE MOVER ESTE PRINT  DENTRO DEL IF, 
+			ADEMÁS DE AGREGAR OTRO ANTES DEL BREAK PARA INDICAR CUANOD UNA DESCARGA FRACASÓ"""
                 print(f'Imagen descargada: {img_name}')
 
         except requests.exceptions.RequestException as e:
