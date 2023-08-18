@@ -57,11 +57,10 @@ for i in range (0,8):
                 if response.status_code == 200:
                     with open(img_path, 'wb') as img_file:
                         img_file.write(response.content)
+			print(f'Imagen descargada: {img_name}')
                 else:
-                    break
-                """SE PUEDE MOVER ESTE PRINT  DENTRO DEL IF, 
-			ADEMÁS DE AGREGAR OTRO ANTES DEL BREAK PARA INDICAR CUANOD UNA DESCARGA FRACASÓ"""
-                print(f'Imagen descargada: {img_name}')
+			print(f'Imagen: {img_name} no pudo ser descargada')
+                 	break
 
         except requests.exceptions.RequestException as e:
             print(f'No existe el libro {url}: {e}')
